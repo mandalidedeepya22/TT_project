@@ -1,0 +1,54 @@
+# Contact Manager Application Commands
+
+## Backend (Spring Boot) Commands
+
+# Start the Spring Boot backend server
+cd C:\Users\HP\OneDrive\Desktop\contactmanager
+.\mvnw.cmd spring-boot:run
+
+# Stop the backend server (Ctrl+C in terminal)
+
+## Frontend (React) Commands
+
+# Start the React frontend development server
+cd C:\Users\HP\OneDrive\Desktop\contactmanager\frontend
+npm start
+
+# Stop the frontend server (Ctrl+C in terminal)
+
+## Application URLs
+
+# Backend API: http://localhost:8080
+# Frontend App: http://localhost:3000
+# H2 Console: http://localhost:8080/h2-console
+
+## Default Admin Credentials
+
+Username: admin
+Password: admin123
+
+## Testing Commands
+
+# Test backend API (PowerShell)
+Invoke-WebRequest -Uri "http://localhost:8080/api/contacts" -Method GET -UseBasicParsing
+
+# Test authentication (PowerShell)
+Invoke-WebRequest -Uri "http://localhost:8080/api/auth/login" -Method POST -Headers @{"Content-Type"="application/json"} -Body "{\"username\":\"admin\",\"password\":\"admin123\"}" -UseBasicParsing
+
+# Open React app in Chrome
+start chrome http://localhost:3000
+
+## Troubleshooting Commands
+
+# Check if Java processes are running
+Get-Process -Name java -ErrorAction SilentlyContinue
+
+# Kill Java processes if needed
+taskkill /F /IM java.exe
+
+# Remove target directory if Maven clean fails
+Remove-Item -Recurse -Force target
+
+# Install axios in frontend (if needed)
+cd frontend
+npm install axios
