@@ -14,7 +14,8 @@ public interface ContactRepository extends JpaRepository<Contact, Long> {
     
     List<Contact> findByCategory(String category);
     
-    List<Contact> findByFavorite(boolean favorite);
+    @Query("SELECT c FROM Contact c WHERE c.isFavorite = :favorite")
+    List<Contact> findByFavorite(@Param("favorite") boolean favorite);
     
     @Query("SELECT c FROM Contact c WHERE LOWER(c.name) LIKE %:search% OR LOWER(c.email) LIKE %:search% OR LOWER(c.phone) LIKE %:search%")
     List<Contact> searchContacts(@Param("search") String search);

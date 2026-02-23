@@ -87,6 +87,11 @@ public class Contact {
         isFavorite = favorite;
     }
 
+    // JPA needs this getter for findByFavorite method
+    public boolean getFavorite() {
+        return isFavorite;
+    }
+
     public String getPhotoUrl() {
         return photoUrl;
     }
